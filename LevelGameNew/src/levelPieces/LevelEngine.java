@@ -1,3 +1,5 @@
+//Lucy Mahorner and Ethan Bond
+
 package levelPieces;
 
 import java.util.ArrayList;
@@ -14,51 +16,51 @@ public class LevelEngine {
 	
 	public void createLevel(int levelNum) {
 		this.levelNum = levelNum;
-		drawablePieces = new Drawable[21];
-		Minion m = new Minion('M',20);
-		Doormat d = new Doormat();
-		Unicorn u = new Unicorn('U',7);
-		Unicorn un = new Unicorn('U',10);
+		Bazooka m = new Bazooka('M',20);
+		Butler d = new Butler();
+		Narwhale u = new Narwhale('U',7);
+		Narwhale un = new Narwhale('U',10);
 		Winner z = new Winner('Z', 1);
-		Sniper s = new Sniper('S', 9);
-		BumbleBee b = new BumbleBee('B', 12);
-		
-		drawablePieces[5] = d;
+		Shooter s = new Shooter('S', 9);
+		Wasp b = new Wasp('B', 12);
 		
 		switch(levelNum){
 		case 1:
-			drawablePieces[7] = u;
-			drawablePieces[20] = m;
+			drawablePieces = new Drawable[21];
+			movingPieces = new ArrayList<Moveable>();
+			movingPieces.add(m);
+			movingPieces.add(u);
+			movingPieces.add(un);
 			drawablePieces[1] = z;
 			drawablePieces[9] = s;
 			drawablePieces[12] = b;
-			drawablePieces[10] = un;
 			break;
 		
 		case 2:
+			drawablePieces = new Drawable[21];
+			movingPieces = new ArrayList<Moveable>();
+			movingPieces.add(m);
+			movingPieces.add(u);
 			m.setLocation(10);
 			u.setLocation(20);
 			z.setLocation(16);
 			s.setLocation(8);
 			b.setLocation(5);
 
-			drawablePieces[20] = u;
-			drawablePieces[10] = m;
 			drawablePieces[16] = z;
 			drawablePieces[8] = s;
 			drawablePieces[5] = b;
 			break;
 		}
-		movingPieces.add(m);
-		movingPieces.add(u);
+		drawablePieces[5] = d;
 		interactingPieces.add(u);
 		interactingPieces.add(s);
 		interactingPieces.add(z);
 		interactingPieces.add(b);
 		interactingPieces.add(m);
 		interactingPieces.add(un);
-			
 	}
+	
 	// request data structures from LevelEngine
 	// returns the board and the pieces that show up on the board
 	public Drawable [] getBoard(int size) {
@@ -66,17 +68,17 @@ public class LevelEngine {
 		return drawablePieces;
 	}
 	public void updateBoard(){
-		for(Moveable m: movingPieces){
-			GamePiece movingPieces = (GamePiece) m;
-			drawablePieces[movingPieces.getLocation()] = m;
-			movingPieces.draw();
-			System.out.println(movingPieces.getLocation());
+		for(Moveable piece: movingPieces){
+			GamePiece movingPieces = (GamePiece) piece;
+			drawablePieces[movingPieces.getLocation()] = piece;
 		}
 	}
 	// returns a list of the Moveable pieces for use outside of the board
 	public ArrayList<Moveable> getMovingPieces(){
 		return movingPieces;
 	}
+	
+	//returns a list of the GamePiece pieces for use outside of the board
 	public ArrayList<GamePiece> getInteractingPieces(){
 		return interactingPieces;
 	}
