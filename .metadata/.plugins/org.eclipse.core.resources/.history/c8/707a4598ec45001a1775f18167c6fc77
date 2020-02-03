@@ -1,0 +1,12 @@
+Partners: Lucy Mahorner and Ethan Bond
+
+5 Pieces that interact: 
+1) BumbleBee: 
+2) 
+3) 
+4) 
+5) 
+
+2 Pieces that implement moveable:
+1) Unicorn: randomly moves to unoccupied space on board
+2) Minion: moves right one until reaching the right most space, then moves left

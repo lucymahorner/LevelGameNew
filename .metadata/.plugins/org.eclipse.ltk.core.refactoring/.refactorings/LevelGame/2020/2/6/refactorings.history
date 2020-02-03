@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;gameEngine&apos; to &apos;LevelGameNew/src&apos;&#x0A;- Original project: &apos;LevelGame&apos;&#x0A;- Destination element: &apos;LevelGameNew/src&apos;&#x0A;- Original element: &apos;LevelGame/src/gameEngine&apos;&#x0A;- Update references to refactored element" description="Move package" destination="=LevelGameNew/src" element1="/src&lt;gameEngine" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1580667213556" version="1.0"/>
+</session>

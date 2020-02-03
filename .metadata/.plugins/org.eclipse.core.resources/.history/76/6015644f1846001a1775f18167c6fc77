@@ -1,0 +1,54 @@
+package levelPieces;
+
+import gameEngine.Drawable;
+import gameEngine.GameEngine;
+import gameEngine.InteractionResult;
+import gameEngine.Moveable;
+
+public class Minion extends GamePiece implements Moveable {
+
+	Minion(char symbol, int location){
+		super(symbol, location);
+	}
+	
+	@Override
+	public InteractionResult interact(Drawable[] pieces, int playerLocation) {
+//		if(InteractionResult)
+		return null;
+	}
+
+
+	@Override
+	public void move(Drawable[] gameBoard, int playerLocation) {
+		System.out.println(getLocation());
+		// TODO Auto-generated method stub
+//		int loc;
+//		if(playerLocation == GameEngine.BOARD_SIZE-1) {
+//			loc = 20;
+//			while(gameBoard[loc] != null) {
+//				loc--;
+//				
+//			}
+//			this.setLocation(loc);
+//		}
+//		else {
+//			loc = playerLocation + 1;
+//			while(gameBoard[loc] != null) {
+//				loc++;
+//				if(loc >= gameBoard.length) {
+//					loc = playerLocation;
+//					break;
+//				}
+//			}
+//			this.setLocation(loc);
+//		}
+		int i = 1;
+		if(getLocation() == 0 || getLocation() == GameEngine.BOARD_SIZE-1){
+			i*= -1;
+		}
+		this.setLocation(getLocation()+i);
+		System.out.println(getLocation());
+		
+	}
+
+}

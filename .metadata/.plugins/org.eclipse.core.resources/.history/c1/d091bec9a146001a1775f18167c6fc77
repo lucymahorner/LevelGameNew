@@ -1,0 +1,62 @@
+package levelPieces;
+
+import java.util.ArrayList;
+
+import gameEngine.Drawable;
+import gameEngine.Moveable;
+
+public class LevelEngine {
+	
+	private int levelNum;
+	private ArrayList<Moveable> t = new ArrayList<Moveable>();
+//	private ArrayList<Drawable> t = new ArrayList<Drawable>();
+	private Drawable[] temp = new Drawable[21];
+
+	public void createLevel(int levelNum) {
+		this.levelNum = levelNum;
+		Minion m = new Minion('M',2);
+		Doormat d = new Doormat();
+		Unicorn u = new Unicorn('U',7);
+		Prize z = new Prize('Z', 4);
+		Sniper s = new Sniper('S', 9);
+		
+
+		t.add(m);
+		t.add(u);
+		temp[7] = u;
+		temp[2] = m;
+		temp[5] = d;
+		temp[4] = z;
+		temp[9] = s;
+		
+	}
+	// request data structures from LevelEngine
+	// returns the board and the pieces that show up on the board
+	public Drawable [] getBoard(int size) {
+		updateBoard();
+		return temp;
+	}
+	public void updateBoard(){
+		for(Moveable m: t){
+//		for(Drawable m: t){
+			GamePiece t = (GamePiece) m;
+			temp[t.getLocation()] = m;
+			t.draw();
+			System.out.println(t.getLocation());
+		}
+	}
+	// returns a list of the Moveable pieces for use outside of the board
+	public ArrayList<Moveable> getMovingPieces(){
+//	public ArrayList<Drawable> getMovingPieces(){
+		return t;
+	}
+	public ArrayList<GamePiece> getInteractingPieces(){
+		ArrayList<GamePiece> temp = new ArrayList<GamePiece>();
+		return temp;
+	}
+	// reset player statistics, starting location determined
+	// by level engine
+	public int getPlayerStartLoc() {
+		return 0;
+	}
+}

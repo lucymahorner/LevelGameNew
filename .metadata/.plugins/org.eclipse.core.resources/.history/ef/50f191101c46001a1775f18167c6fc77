@@ -1,0 +1,38 @@
+package levelPieces;
+
+import gameEngine.Drawable;
+import gameEngine.InteractionResult;
+import gameEngine.Moveable;
+import java.util.*;
+import java.lang.Math;
+
+public class Unicorn extends GamePiece implements Moveable {
+
+	Unicorn(char symbol, int location){
+		super(symbol, location);
+	}
+	
+	@Override
+	public InteractionResult interact(Drawable[] pieces, int playerLocation) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void move(Drawable[] gameBoard, int playerLocation) {
+		System.out.println("Unicorn move fn");
+		int loc = playerLocation;
+		gameBoard[getLocation()] = null;
+		while(gameBoard[loc] != null) {
+			double random = Math.random();
+			int randint = (int) (random*20 +1);
+			loc = randint;
+			System.out.println(loc);
+		}
+		this.setLocation(loc);
+		gameBoard[getLocation()] = this;
+	}
+	
+
+}

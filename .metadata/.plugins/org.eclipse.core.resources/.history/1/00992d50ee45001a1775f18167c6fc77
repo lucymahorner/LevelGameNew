@@ -1,0 +1,18 @@
+Partners: Lucy Mahorner and Ethan Bond
+
+5 Pieces that interact: 
+1) BumbleBee: acts as a hit
+2) Sniper: kills a player that lands on or next to the space it occupies
+3) 
+4) 
+5) 
+
+2 Pieces that implement moveable:
+1) Unicorn: randomly moves to unoccupied space on board
+2) Minion: moves right one until reaching the right most space, then moves left
+
+1 Piece that only should be drawable:
+1) Doormat: occupies a space on the board
+
+Two Levels:
+- Check. In the LevelEngine class

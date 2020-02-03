@@ -1,0 +1,16 @@
+INDEX VERSION 1.126+/Users/lucymahorner/Documents/EclipseWorkspace/.metadata/.plugins/org.eclipse.jdt.core
+97863960.index
+1271342938.index
+670109410.index
+3657721178.index
+2720140819.index
+1903625387.index
+2670414054.index
+950241290.index
+3564097277.index
+1124887105.index
+11171121.index
+2225827089.index
+1724278011.index
+363152344.index
+2499292115.index

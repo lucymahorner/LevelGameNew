@@ -7,7 +7,7 @@ import gameEngine.Moveable;
 
 public class Minion extends GamePiece implements Moveable {
 
-	Minion(char symbol, int location){
+	public Minion(char symbol, int location){
 		super(symbol, location);
 	}
 	
@@ -15,7 +15,7 @@ public class Minion extends GamePiece implements Moveable {
 	public InteractionResult interact(Drawable[] pieces, int playerLocation) {
 		if(getLocation() == playerLocation || getLocation() + 1 == playerLocation
 				|| getLocation() - 1 == playerLocation){
-			return InteractionResult.KILL;
+			return InteractionResult.HIT;
 		}
 		return InteractionResult.NONE;
 	}

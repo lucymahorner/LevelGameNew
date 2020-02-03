@@ -1,0 +1,13 @@
+package levelPieces;
+
+import gameEngine.Drawable;
+
+public abstract class GamePiece implements Drawable {
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

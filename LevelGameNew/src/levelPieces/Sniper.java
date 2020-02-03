@@ -11,9 +11,7 @@ public class Sniper extends GamePiece {
 	
 	@Override
 	public InteractionResult interact(Drawable[] pieces, int playerLocation) {
-		if(getLocation() == playerLocation || getLocation() + 2 == playerLocation 
-				|| getLocation() + 1 == playerLocation || getLocation() - 2 == playerLocation
-				|| getLocation() - 1 == playerLocation){
+		if(getLocation() == playerLocation){
 			return InteractionResult.KILL;
 		}
 		return InteractionResult.NONE;

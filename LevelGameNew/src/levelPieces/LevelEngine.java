@@ -8,49 +8,77 @@ import gameEngine.Moveable;
 public class LevelEngine {
 	
 	private int levelNum;
-	private ArrayList<Moveable> t = new ArrayList<Moveable>();
-	private Drawable[] temp = new Drawable[21];
-
+	private ArrayList<Moveable> movingPieces = new ArrayList<Moveable>();
+	private Drawable[] drawablePieces;
+	private ArrayList<GamePiece> interactingPieces = new ArrayList<GamePiece>();
+	
 	public void createLevel(int levelNum) {
 		this.levelNum = levelNum;
-		Minion m = new Minion('M',2);
+		drawablePieces = new Drawable[21];
+		Minion m = new Minion('M',20);
 		Doormat d = new Doormat();
 		Unicorn u = new Unicorn('U',7);
-		Prize z = new Prize('Z', 18);
+		Unicorn un = new Unicorn('U',10);
+		Winner z = new Winner('Z', 1);
 		Sniper s = new Sniper('S', 9);
 		BumbleBee b = new BumbleBee('B', 12);
-
-		t.add(m);
-		t.add(u);
-		temp[7] = u;
-		temp[2] = m;
-		temp[5] = d;
-		temp[18] = z;
-		temp[9] = s;
-		temp[12] = b;
 		
+		drawablePieces[5] = d;
+		
+		switch(levelNum){
+		case 1:
+			drawablePieces[7] = u;
+			drawablePieces[20] = m;
+			drawablePieces[1] = z;
+			drawablePieces[9] = s;
+			drawablePieces[12] = b;
+			drawablePieces[10] = un;
+			break;
+		
+		case 2:
+			m.setLocation(10);
+			u.setLocation(20);
+			z.setLocation(16);
+			s.setLocation(8);
+			b.setLocation(5);
+
+			drawablePieces[20] = u;
+			drawablePieces[10] = m;
+			drawablePieces[16] = z;
+			drawablePieces[8] = s;
+			drawablePieces[5] = b;
+			break;
+		}
+		movingPieces.add(m);
+		movingPieces.add(u);
+		interactingPieces.add(u);
+		interactingPieces.add(s);
+		interactingPieces.add(z);
+		interactingPieces.add(b);
+		interactingPieces.add(m);
+		interactingPieces.add(un);
+			
 	}
 	// request data structures from LevelEngine
 	// returns the board and the pieces that show up on the board
 	public Drawable [] getBoard(int size) {
 		updateBoard();
-		return temp;
+		return drawablePieces;
 	}
 	public void updateBoard(){
-		for(Moveable m: t){
-			GamePiece t = (GamePiece) m;
-			temp[t.getLocation()] = m;
-			t.draw();
-			System.out.println(t.getLocation());
+		for(Moveable m: movingPieces){
+			GamePiece movingPieces = (GamePiece) m;
+			drawablePieces[movingPieces.getLocation()] = m;
+			movingPieces.draw();
+			System.out.println(movingPieces.getLocation());
 		}
 	}
 	// returns a list of the Moveable pieces for use outside of the board
 	public ArrayList<Moveable> getMovingPieces(){
-		return t;
+		return movingPieces;
 	}
 	public ArrayList<GamePiece> getInteractingPieces(){
-		ArrayList<GamePiece> temp = new ArrayList<GamePiece>();
-		return temp;
+		return interactingPieces;
 	}
 	// reset player statistics, starting location determined
 	// by level engine

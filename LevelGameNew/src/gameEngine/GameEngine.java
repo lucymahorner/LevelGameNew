@@ -129,7 +129,7 @@ public class GameEngine {
 				// can only be killed once
 				break;
 			}
-			if (result == InteractionResult.ADVANCE) {
+			if (result == InteractionResult.ADVANCE || player.canAdvance() ) {
 				player.wonAdvance();
 				System.out.println("\nGood news, you have won an advance!\n");
 				// can only advance once
