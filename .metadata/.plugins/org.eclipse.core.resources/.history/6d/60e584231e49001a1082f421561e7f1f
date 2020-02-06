@@ -1,0 +1,60 @@
+//Lucy Mahorner and Ethan Bond
+package Tests;
+
+import gameEngine.Drawable;
+import gameEngine.GameEngine;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+import levelPieces.Bazooka;
+import levelPieces.Narwhale;
+
+import org.junit.Test;
+
+public class testMovingPieces {
+	@Test
+	public void testBazooka(){
+		Drawable [] gameBoard = new Drawable[GameEngine.BOARD_SIZE];
+		Bazooka weapon = new Bazooka('N', 19);
+		gameBoard[6] = weapon;
+		Map<Integer, Integer> locations = new HashMap<Integer, Integer>();
+		for(int i = 0; i < 200; i++){
+			Integer getLoc = weapon.getLocation();
+			weapon.move(gameBoard, getLoc);
+			Set<Integer> keys = locations.keySet();
+			if(keys.contains(getLoc)){
+				int temp = locations.get(getLoc);
+				locations.put(getLoc, temp ++);
+			}
+			else{
+				locations.put(getLoc, 1);
+			}
+		}
+	}
+	public void testNarwhale(){
+		Drawable [] gameBoard = new Drawable[GameEngine.BOARD_SIZE];
+		Narwhale whale = new Narwhale('N', 19);
+		gameBoard[19] = whale;
+		Map<Integer, Integer> locations = new HashMap<Integer, Integer>();
+		for(int i = 0; i < 200; i++){
+			Integer getLoc = whale.getLocation();
+			whale.move(gameBoard, getLoc);
+			Set<Integer> keys = locations.keySet();
+			if(keys.contains(getLoc)){
+				int temp = locations.get(getLoc);
+				locations.put(getLoc, temp ++);
+			}
+			else{
+				locations.put(getLoc, 1);
+			}
+		}
+		for(int i = 0; i < 10; i++){
+			double random = Math.random();
+			int randInt = (int) (random*20 +1);
+			int newNum = locations.get(randInt);
+			assert(newNum > 5);
+		}
+	}
+}

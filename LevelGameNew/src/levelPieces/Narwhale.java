@@ -10,7 +10,7 @@ import java.lang.Math;
 
 public class Narwhale extends GamePiece implements Moveable {
 
-	Narwhale(char symbol, int location){
+	public Narwhale(char symbol, int location){
 		super(symbol, location);
 	}
 	

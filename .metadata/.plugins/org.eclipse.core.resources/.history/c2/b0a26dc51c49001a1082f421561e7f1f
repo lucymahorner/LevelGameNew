@@ -1,0 +1,14 @@
+//Lucy Mahorner and Ethan Bond
+package Tests;
+import levelPieces.*;
+import gameEngine.*;
+import org.junit.Test;
+
+public class testInteractions {
+	@Test
+	public void testNarwhale(){
+		Drawable [] gameBoard = new Drawable[GameEngine.BOARD_SIZE];
+		Narwhale whale = new Narwhale('N', 19);
+		
+	}
+}

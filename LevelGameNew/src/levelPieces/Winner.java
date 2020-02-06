@@ -7,7 +7,7 @@ import gameEngine.InteractionResult;
 
 public class Winner extends GamePiece {
 
-	Winner(char symbol, int location){
+public Winner(char symbol, int location){
 		super(symbol, location);
 	}
 	
